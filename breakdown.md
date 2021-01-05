@@ -1,0 +1,29 @@
+https://www.electionreturns.pa.gov/General/SummaryResults
+https://www.pavoterservices.pa.gov/Pages/PurchasePAFULLVoterExport.aspx
+
+* We cannot draw any conclusions about voter fraud in PA until their vote audit is done, which it is not. TLDR: there's no reason to believe any fraud exists. In this thread, I explain what's going on, crunch the numbers, and prove it. #voterfraud #2020election
+* Unknown parties propelled by R PA assemblymen saw that a voter registration export file on PA's Depart of State (DoS) website shows less voters registered than votes reported for President. They leapt to the conclusion that almost 200k votes from unregistered voters were counted.
+* The file they are referencing is an export of PA's "SURE" system, which is a post-election audit system to verify election integrity. The file is not an original file or source of truth. It is a calculated summary unifying disparate registration and ballot data from the counties.
+* It even says the data is not complete on the page to download the file, and specifies when it gets updated. https://www.pavoterservices.pa.gov/Pages/PurchasePAFULLVoterExport.aspx (SS 1)
+* There is currently an overcount between NYT/DoS votes for President, and SURE *ballots*. The SURE system does not count votes, only party registration, location, and ballots. Thus the comparison is not apples to apples, since people can vote for down-ballot but not President.
+* So 1) R's are fallaciously claiming the SURE system is an original source of truth, which it is not. They're SAYING they're comparing votes tallied post-election to registered voters pre-voting-time, but they're actually comparing votes tallied to ballots audited post-election.
+* 2) R's are doing a fallacious comparison, comparing votes for President to ballots cast
+* 3) the SURE system does not even publish WHO the votes went to or even for which race. It only publishes voter registration. So you can't draw any conclusions about who the votes went for, i.e. Biden/Trump/Jorgensen/write-in.
+* 4) R's did not point out, probably because they didn't bother to check, that the tally/SURE numbers need not match, due to the down-ballot counting.
+* 5) R's did not point out, probably because they didn't bother to check, whether the audit is even done or not - it isn't. Allegheny and Philadelphia are not done.
+* I downloaded that file from PA's website myself, and you can too (for $20 and a made up driver's license number).  (SS2)
+* I wrote a program that automatically compares ballot counts for each county from that (currently incomplete) SURE export file, to the corresponding county vote count for President published by the New York Times (SS3)
+* I chose NYT because their published numbers match PA's county-level published numbers and were readily available in a consummable format. I mention this mainly in case you want to check some of these numbers yourself https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/president.json (SS4)
+* The program then reports the specific undercounts and overcounts for each county (I'll come to undercounts in a minute). Basically, I'm comparing votes reported by PA for President to ballots audited by PA, which is what the complainants claim to be doing. (Video 1)
+* 4/67 counties had more than .5% overcount with more than 2000 votes from NYT/DoS to SURE/dump. There are 153,546 overvotes in total. They are:
+* Allegheny - 116,605, 75.94% of the total overcount, Philadelphia - 21,979, 14.31% of the total overcount, Luzerne - 3,444, 2.24% of the total overcount, Montgomery - 2,720, 1.77% of the total overcount
+* None of the other counties met that threshold. Add up all the counties that don't and there's another 8,798. All overcounts for all counties combined is 153,546, 2.22% of the tallied votes for President.
+* The SURE dump does NOT have full election data as reported in the SURE county-by-county elections file for Allegheny or Philadelphia, which is 90.2% of the total difference. There are some votes from these places in the file. But we don't know how many are remaining to be added. (SS5, SS6)
+* In short, 90% of the overcount comes from the two biggest counties, neither of whom have finished adding their data to SURE. It seems like a safe bet that the overcount will disappear when these two are completed.
+* There are also 47/67 counties with undercounts in the NYT data compared to SURE data, most within a couple hundred votes, a handful of counties with ~1k, one county with 2k (Berks) which was the max undercount. In total, there are currently 15,981 votes undercounted.
+* The undercount is likely to be people who voted downballot but not President. At the end, we'd probably expect the total number of SURE ballots to be higher than the Presidential tallies reported by the counties.
+* Republicans relying on fake data scientists, at least one of whom admitted to being foreign (British) and being paid by unnamed Americans (in now-deleted Tweets), with a Twitter feed full of election conspiracy theories, to provide unverified, non-peer reviewed data.
+* I personally dismantled it in my spare time, most of it within a few hours of looking at the data.  (SS7,8
+* In other words, foreigners are, again, interfering with the sanctity of our democratic process, with real consequences for Americans. That person has now moved on from fraud in PA to conspiracies about the Tennessee RV bombing. (SS9)
+* The outrageous claims were also dismantled by the PA Department of State within 24 hours of the complaint being filed. If you read it, my independent, data-driven verification overlaps with theirs point by point.
+* The voter registration export file is supposed to only be available to PA residents, but there is no identity verification, so anybody, including foreigners, can download this registration data. I assume it is available somewhere on the internet. If you want a copy, DM me.
