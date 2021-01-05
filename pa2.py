@@ -10,6 +10,19 @@ import multiprocessing as mp
 from glob import glob
 from functools import reduce
 import json
+import warnings
+
+warnings.filterwarnings('ignore')
+progressTemplate = "{} - Registered:{} Dump:{} NYT:{} Turnout:{:.2%}"
+
+def getNytData():
+	nytCountyData = json.loads(requests.get("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/president.json").text)
+	nytCountyData = {county["name"]: county["results"]["bidenj"] + county["results"]["trumpd"] + county["results"]["jorgensenj"] for county in nytCountyData["data"]["races"][38]["counties"]}
+	# Capitalization issue betwen the state export and NYT
+	nytCountyData["Mckean"] = nytCountyData["McKean"]
+	return nytCountyData
+
+nytCountyData = getNytData()
 
 # In: full path to a SURE export's county file (FVE, Full Voter Export)
 # Out: a tuple of the county name, # registered, # voted (SURE), # voted (NYT), overcount, undercount
@@ -52,13 +65,6 @@ def processCounty(fullpath):
 
 	return (normalizedName, numRegistered, numVoted, numNytVoted, overcountDiff, undercountDiff)
 
-def getNytData():
-	nytCountyData = json.loads(requests.get("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/president.json").text)
-	nytCountyData = {county["name"]: county["results"]["bidenj"] + county["results"]["trumpd"] + county["results"]["jorgensenj"] for county in nytCountyData["data"]["races"][38]["counties"]}
-	# Capitalization issue betwen the state export and NYT
-	nytCountyData["Mckean"] = nytCountyData["McKean"]
-	return nytCountyData
-
 # Main entry point
 # 1. Ingest entire NYT dataset (not just PA) 
 # 2. Use *map* and multiprocessing to quickly ingest disparate county data into single dataset and marry it to NYT data
@@ -67,14 +73,14 @@ def getNytData():
 # 5. Spit out totals
 if __name__ == '__main__':
 	finalOutput = "Registered:{} Dump:{} NYT:{} Overcount:{}({:.2%}) Undercount:{}({:.2%}) Turnout:{:.2%}"
-	progressTemplate = "{} - Registered:{} Dump:{} NYT:{} Turnout:{:.2%}"
+	
 	undercountCounties = 0
 	overcountCounties = 0
 
 	pool = mp.Pool(mp.cpu_count())
 	
-	nytCountyData = getNytData()	
-	countyResults = pool.map(processCounty, glob("/Users/payamazadi/Downloads/Statewide" + "/* FVE*"))
+	# nytCountyData = getNytData()
+	countyResults = pool.map(processCounty, glob("Statewide" + "/* FVE*"))
 
 	# The most pythonic way I could come up with to sum up the 'columns' of this list of tuples
 	# Somewhat pedantic, but I like it because it iterates over the combined, summed dataset once,
