@@ -8,7 +8,6 @@ from functools import reduce
 import json
 
 warnings.filterwarnings('ignore')
-directory = "/Users/payamazadi/Downloads/Statewide"
 progressTemplate = "{} - Registered:{} Dump:{} NYT:{} Turnout:{:.2%}"
 
 nytData = json.loads(requests.get("https://static01.nyt.com/elections-assets/2020/data/api/2020-11-03/national-map-page/national/president.json").text)
@@ -66,3 +65,4 @@ if __name__ == '__main__':
 
 	print("\n\n---TOTAL---\n" + finalOutput.format(totalRegistered, totalVoted, totalNytVoted, totalOvercount, overcountDiffPercent, totalUndercount, undercountDiffPercent, totalVoted / totalRegistered))
 	print("({} Counties)".format(len(countyResults)))
+	print(progressTemplate)
